@@ -1,10 +1,7 @@
 package com.example.admin.fence.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "fence")
@@ -13,10 +10,15 @@ public class New {
     @Id
     String name;
 
-    @Column(name = "text", nullable = false)
+    @Column(name = "text", nullable = false, columnDefinition = "TEXT")
     String text;
 
+    public New(String name,String text){
+        this.name = name;
+        this.text = text;
+    }
 
+    public New(){}
     public String getName() {
         return name;
     }
@@ -24,6 +26,7 @@ public class New {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getText() {
         return text;
