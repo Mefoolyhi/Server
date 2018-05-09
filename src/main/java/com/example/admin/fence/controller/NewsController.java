@@ -4,6 +4,7 @@ import com.example.admin.fence.entity.New;
 import com.example.admin.fence.parser.NewsParcer;
 import com.example.admin.fence.repository.NewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class NewsController {
     public New getNew(@PathVariable("name") String name){
 
             if (repository.existsById(name)){
-                return repository.getOne(name);
+                return repository.findById(name).get();
             }
             else
             {

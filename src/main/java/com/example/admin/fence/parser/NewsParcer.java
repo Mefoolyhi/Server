@@ -12,14 +12,10 @@ public class NewsParcer {
     public NewsParcer(String link){
         try {
 
-            body = "";
+
             Document doc = Jsoup.connect(link).get();
-            Element tit = doc.selectFirst(".l-col31_1__in-inner").selectFirst(".b-content-header");
-            body += "\n" + tit.text();
-            tit = doc.selectFirst(".b-content-wrapper").selectFirst(".b-news__dop-title");
-            body += "\n" + tit.text();
             Element e = doc.selectFirst(".b-content-wrapper").selectFirst(".content");
-            body += "\n" + e.text();
+            body = " \n " + e.text();
 
 
 
