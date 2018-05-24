@@ -1,6 +1,8 @@
 package com.example.admin.fence.config;
 
+import com.example.admin.fence.parser.TheatreParser;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +25,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("com.example.admin.fence")
 @PropertySource("classpath:db.properties")
-public class DatabaseConf {
+public class DatabaseFenceConf {
 
 
     @Resource
@@ -58,11 +60,13 @@ public class DatabaseConf {
         }
     }
 
+
+
     @Bean
     public DataSource dataSource(){
 
         BasicDataSource bds = new BasicDataSource();
-        bds.setUrl(env.getRequiredProperty("db.url"));
+        bds.setUrl(env.getRequiredProperty("db.fence.url"));
         bds.setDriverClassName(env.getRequiredProperty("db.driver"));
         bds.setUsername(env.getRequiredProperty("db.username"));
         bds.setPassword(env.getRequiredProperty("db.password"));

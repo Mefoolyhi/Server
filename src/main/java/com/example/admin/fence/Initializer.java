@@ -1,6 +1,8 @@
 package com.example.admin.fence;
 
 import com.example.admin.fence.config.WebConfig;
+import com.example.admin.fence.parser.TheatreParser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -12,6 +14,9 @@ import javax.servlet.ServletRegistration;
 public class Initializer implements WebApplicationInitializer {
 
     private final static String DISPATCHER = "dispatcher";
+
+
+
     public void onStartup(javax.servlet.ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(WebConfig.class);
@@ -20,6 +25,10 @@ public class Initializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER,new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
+
+
+
+
 
     }
 }
