@@ -29,9 +29,9 @@ public class Theatre {
     String id;
 
 
-    @Column(name = "latitude", nullable = false, columnDefinition = "REAL")
+    @Column(name = "latitude", nullable = false, columnDefinition = "DOUBLE")
     double latitude;
-    @Column(name = "longitude", nullable = false, columnDefinition = "REAL")
+    @Column(name = "longitude", nullable = false, columnDefinition = "DOUBLE")
     double longintude;
 
     public Theatre(String id, String title, String address, String image, String link, String number, double latitude, double longintude){
