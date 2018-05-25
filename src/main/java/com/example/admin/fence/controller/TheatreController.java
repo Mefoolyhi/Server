@@ -23,8 +23,8 @@ public class TheatreController {
     @RequestMapping(value = "/theatres", method = RequestMethod.GET)
     public String getNews(){
 
-        new TheatreParser().parse(repository);
-        new ConcertsParser().parse(repository);
+        //new TheatreParser().parse(repository);
+        //new ConcertsParser().parse(repository);
         List<Theatre> list = repository.findAll();
 
         return new Gson().toJson(list);
